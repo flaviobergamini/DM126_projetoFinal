@@ -85,6 +85,8 @@ struct CarouselTabView: View {
                     print("Erro ao fazer upload: \(error.localizedDescription)")
                 } else if let jsonResponse = response as? [String: Any], let imageURL = jsonResponse["image"] as? String {
                     print(imageURL)
+                    // Obs: Devido ao tempo de acesso no MAC remoto, a imagem da API está local, mas a requisição POST funciona
+                    // TODO: Ficou pendende os métodos de download da imagem da API e armazenameno na pasta Assets do projeto
                     let newBanner = ServiceType(id: bannerList.count + 1, nome: "", imagem: "Prologica")
                     bannerList.append(newBanner)
                 } else {
